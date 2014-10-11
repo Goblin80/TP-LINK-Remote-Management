@@ -7,7 +7,7 @@ Multiple Batch scripts designed to control and monitor most TP-Link Routers thro
 
 ####1. Interactive Router Control:
 
-- It's an interactive batch script has the ability to:
+  It's an interactive batch script has the ability to:
 
 * Reboot Router
 * Change/Renew IP
