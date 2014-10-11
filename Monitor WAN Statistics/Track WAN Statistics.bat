@@ -1,8 +1,14 @@
 @ECHO off
 
-REM Authorization for user:user
+REM Authorization for user:user (base64)
 SET Auth=Basic dXNlcjp1c2Vy
+
+REM Default Gateway IP
+SET DefIP=192.168.1.1
+
 SET	TotalTrackFile="Log\Total.txt"
+
+REM Using the following format: DD - MM.txt
 SET TodayTrackFile="Log\%date:~7,2% - %date:~4,2%.txt"
 
 REM Check cURL
@@ -18,7 +24,7 @@ set counter=0
 REM Bytes on Line 54, but there are 3 skipped empty lines.
 SET LineNo=51
 
-FOR /f %%i IN ('curl.exe -s "http://192.168.1.1/statswan.cmd" -H "Referer: http://192.168.1.1/menu.html" -H "Cookie: Authorization=%Auth%"') DO SET /a counter+=1 & IF !counter! EQU %LineNo% SET rec="%%i"
+FOR /f %%i IN ('curl.exe -s "http://%DefIP%/statswan.cmd" -H "Referer: http://%DefIP%/menu.html" -H "Cookie: Authorization=%Auth%"') DO SET /a counter+=1 & IF !counter! EQU %LineNo% SET rec="%%i"
 
 IF [%rec%] EQU [] ECHO ERROR: Cannot connect to router & timeout 10 & Exit
 SET rec=%rec:~5,-6%
@@ -40,5 +46,5 @@ ECHO %total% > %TotalTrackFile%
 ECHO %today% > %TodayTrackFile%
 
 REM Reset Statistics
-curl -s "http://192.168.1.1/statswanreset.html" -H "Referer: http://192.168.1.1/statswan.cmd" -H "Cookie: Authorization=%Auth%" > nul
+curl -s "http://%DefIP%/statswanreset.html" -H "Referer: http://%DefIP%/statswan.cmd" -H "Cookie: Authorization=%Auth%" > nul
 
