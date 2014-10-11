@@ -1,4 +1,4 @@
-TP-LINK-Remote-Management
+TP-LINK Remote Management
 =========================
 
 Multiple Batch scripts designed to control and monitor most TP-Link Routers through cURL.
