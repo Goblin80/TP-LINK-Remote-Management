@@ -17,7 +17,7 @@ Multiple Batch scripts designed to control and monitor most TP-Link Routers thro
 
  **Make sure to create a Basic Task in the Task Scheduler to run "Track WAN Statistics.bat" every X mins.**
 
-- Consists of 2 batch scripts used to monitor WAN Service (Internet Traffic) Bandwidth consumption.
+  Consists of 2 batch scripts used to monitor WAN Service (Internet Traffic) Bandwidth consumption.
 
 * *Track WAN Statistics.bat* : Fetch and save logged traffic then reset the statistics counter.
 
