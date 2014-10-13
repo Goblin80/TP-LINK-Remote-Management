@@ -36,8 +36,8 @@ SET /a rec/=1024
 REM Get total/today bytes
 IF NOT EXIST %TotalTrackFile% ECHO 0 > %TotalTrackFile% & ECHO Total Track File Not found, New one created.
 IF NOT EXIST %TodayTrackFile% ECHO 0 > %TodayTrackFile% & ECHO Today Track File Not found, New one created.
-FOR /f %%i IN (%TotalTrackFile%) DO SET total=%%i
-FOR /f %%i IN (%TodayTrackFile%) DO SET today=%%i
+FOR /f "usebackq" %%i IN (%TotalTrackFile%) DO SET total=%%i
+FOR /f "usebackq" %%i IN (%TodayTrackFile%) DO SET today=%%i
 
 REM Set total/today bytes
 SET /a total+= %rec%
