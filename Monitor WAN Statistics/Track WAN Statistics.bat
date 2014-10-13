@@ -19,29 +19,29 @@ IF NOT EXIST Log MKDIR Log
 
 REM To increment 'counter' inside the loop
 SETLOCAL ENABLEDELAYEDEXPANSION 
-set counter=0
+SET counter=0
 
 REM Bytes on Line 54, but there are 3 skipped empty lines.
 SET LineNo=51
 
-FOR /f %%i IN ('curl.exe -s "http://%DefIP%/statswan.cmd" -H "Referer: http://%DefIP%/menu.html" -H "Cookie: Authorization=%Auth%"') DO SET /a counter+=1 & IF !counter! EQU %LineNo% SET rec="%%i"
+FOR /F %%i IN ('curl.exe -s "http://%DefIP%/statswan.cmd" -H "Referer: http://%DefIP%/menu.html" -H "Cookie: Authorization=%Auth%"') DO SET /a counter+=1 & IF !counter! EQU %LineNo% SET rec="%%i"
 
 IF [%rec%] EQU [] ECHO ERROR: Cannot connect to router & timeout 10 & Exit
 SET rec=%rec:~5,-6%
 SET rec=%rec:,=%
 
 REM Store rec in KBs
-SET /a rec/=1024
+SET /F rec/=1024
 
 REM Get total/today bytes
 IF NOT EXIST %TotalTrackFile% ECHO 0 > %TotalTrackFile% & ECHO Total Track File Not found, New one created.
 IF NOT EXIST %TodayTrackFile% ECHO 0 > %TodayTrackFile% & ECHO Today Track File Not found, New one created.
-FOR /f "usebackq" %%i IN (%TotalTrackFile%) DO SET total=%%i
-FOR /f "usebackq" %%i IN (%TodayTrackFile%) DO SET today=%%i
+FOR /F "usebackq" %%i IN (%TotalTrackFile%) DO SET total=%%i
+FOR /F "usebackq" %%i IN (%TodayTrackFile%) DO SET today=%%i
 
 REM Set total/today bytes
-SET /a total+= %rec%
-SET /a today+= %rec%
+SET /A total+= %rec%
+SET /A today+= %rec%
 ECHO %total% > %TotalTrackFile%
 ECHO %today% > %TodayTrackFile%
 
