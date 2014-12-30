@@ -3,7 +3,7 @@ TP-LINK Remote Management
 
 Multiple Batch scripts designed to control and monitor most TP-Link Routers through cURL.
 
-######Tested on TD-W8950ND V2 and TD-W8960N V5.
+######Tested on TD-W8950ND V2 and TD-W8960N V5 (Most useless piece of garbage I have ever purchased).
 
 ####1. Interactive Router Control:
 
