@@ -3,9 +3,9 @@ TP-LINK Remote Management
 
 Multiple Batch scripts designed to control and monitor most TP-Link Routers through cURL.
 
-######Tested on TD-W8950ND V2 and TD-W8960N V5 (Most useless piece of garbage I have ever purchased).
+###### Tested on TD-W8950ND V2 and TD-W8960N V5 (Most useless piece of garbage I have ever purchased).
 
-####1. Interactive Router Control:
+#### 1. Interactive Router Control:
 
   *Interactive Router Control.bat* is an interactive batch script has the ability to:
 
@@ -13,7 +13,7 @@ Multiple Batch scripts designed to control and monitor most TP-Link Routers thro
 * Change/Renew IP
 * Disable/Enable Wireless AP
 
-####2. Monitor WAN Statistics:
+#### 2. Monitor WAN Statistics:
 
  **Make sure to create a Basic Task in the Task Scheduler to run "Track WAN Statistics.bat" every X mins.**
 
